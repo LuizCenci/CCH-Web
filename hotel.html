@@ -33,24 +33,16 @@
         <input type="date" name="" id="">
     </div>
     <iframe
+        id="map-frame"
         width="400"
         height="350"
         style="border:0"
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAfH5HUi8XmzgcvQ3JzkT5-6GlpbtdG0sg
+        src="https://www.google.com/maps/embed/v1/place?key=
             &q=Rua das graças 1040">
     </iframe>
 </body>
-<script>
-    const imgs = document.querySelectorAll('.img-menor');
-    imgs.forEach(img => {
-    img.addEventListener("mouseover", function () {
-        const imgExibida = document.getElementById('imgExibida');
-        imgExibida.src = img.src; 
-    });
-    });
-
-</script>
+<script src="script.js"></script>
 </html>
