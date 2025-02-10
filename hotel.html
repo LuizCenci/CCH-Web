@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hotel Habbo</h1>
+    <div class="img">
+        <img class="img_atual" src="images/front.jpg" alt="">
+        <img src="images/quarto.jpg" alt="">
+        <img src="images/quarto2.jpg" alt="">
+    </div>
+    <div>
+        <h2>Nossos Serviços</h2>
+        <p>✅Recepção 24h –
+            ✅ Wi-Fi Grátis – 
+            ✅ Café da Manhã Incluso – 
+            ✅ Piscina & SPA – 
+            ✅ Academia – 
+            ✅ Restaurante & Bar – 
+            ✅ Serviço de Quarto – 
+            ✅ Estacionamento Privativo
+            
+            </p>
+    </div>
+    <div>
+        <h2>Faça Sua reserva</h2>
+        <label for="">Data de Entrada</label>
+        <input type="date" name="" id="">
+        <label for="">Data de Saída</label>
+        <input type="date" name="" id="">
+    </div>
+    <iframe
+        width="400"
+        height="350"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAfH5HUi8XmzgcvQ3JzkT5-6GlpbtdG0sg
+            &q=Rua das graças 1040">
+    </iframe>
+</body>
+<script>
+    const imgs = document.querySelectorAll('.img-menor');
+    imgs.forEach(img => {
+    img.addEventListener("mouseover", function () {
+        const imgExibida = document.getElementById('imgExibida');
+        imgExibida.src = img.src; 
+    });
+    });
+
+</script>
+</html>
