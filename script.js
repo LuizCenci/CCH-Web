@@ -1,46 +1,55 @@
 const apiKey = 'AIzaSyAfH5HUi8XmzgcvQ3JzkT5-6GlpbtdG0sg'
-const address = "Rua das Graças 1040";
+const address = "Avenida Padre Cacique, 890";
 const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(address)}`;
 document.getElementById("map-frame").src = mapUrl;
 
+//Carregamento de imagens
+function loadImages() {
+    const gallery = document.getElementById('imageGallery');
+    const images = JSON.parse(localStorage.getItem('hotel_images')) || [
+        'images/front.jpg',
+        'images/quarto.jpg',
+        'images/quarto2.jpg'
+    ];
 
-const imgs = document.querySelectorAll('.img-menor');
+    // Adiciona as imagens dinamicamente
+    gallery.innerHTML = images.map(img => `<img class="img-menor" src="${img}" alt="Foto do hotel">`).join('');
+
+    // Adiciona o evento mouseover após as imagens serem carregadas
+    const imgs = document.querySelectorAll('.img-menor');
     imgs.forEach(img => {
-    img.addEventListener("mouseover", function () {
-        const imgExibida = document.getElementById('imgExibida');
-        imgExibida.src = img.src; 
+        img.addEventListener("mouseover", function () {
+            const imgExibida = document.getElementById('imgExibida');
+            imgExibida.src = img.src;
+        });
     });
-    }); 
+}
 
-const tbl = document.createElement('table');
-tbl.className = 'tbl';
-document.body.appendChild(tbl);
+//Realização de reservas
+const reservationButtons = document.querySelectorAll('.reservation__btn');
 
-document.querySelectorAll('.reservation__btn').forEach(button => {
-    button.addEventListener('click', function(event) {
-        // Captura a linha do botão clicado
-        let linha = event.target.closest('tr'); 
-        let tipoQuarto = linha.cells[0].innerText; // Pega a primeira célula da linha (tipo de quarto)
+reservationButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tipo = btn.getAttribute('data-tipo');
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
 
-        // Captura os valores dos inputs
-        let checkin = document.getElementById('checkin').value;
-        let checkout = document.getElementById('checkout').value;
+        if (!checkin || !checkout) {
+            alert('Preencha as datas de check-in e check-out!');
+            return;
+        }
 
-        // Cria a nova linha na tabela
-        let tr = document.createElement('tr');
-        let td1 = document.createElement('td');
-        let td2 = document.createElement('td');
-        let td3 = document.createElement('td');
+        const reservation = { tipo, checkin, checkout };
+        const reservations = JSON.parse(localStorage.getItem('hotel_reservations')) || [];
+        reservations.push(reservation);
+        localStorage.setItem('hotel_reservations', JSON.stringify(reservations));
 
-        td1.innerHTML = checkin;
-        td2.innerHTML = checkout;
-        td3.innerHTML = tipoQuarto; // Insere o tipo de quarto capturado
-
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-        tbl.appendChild(tr);
-
-        console.log(`Reserva adicionada: ${tipoQuarto} | Check-in: ${checkin} | Check-out: ${checkout}`);
+        alert('Reserva feita com sucesso!');
     });
 });
+
+// Aguarda o carregamento do DOM antes de executar
+document.addEventListener("DOMContentLoaded", loadImages);
+
+
+

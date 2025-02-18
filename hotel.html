@@ -18,7 +18,6 @@
             </nav>
         </header>
 
-        <h1 class="container__title"></h1>
         <div class="container__info">
 
 
@@ -26,23 +25,14 @@
                 <img id="imgExibida" src="images/front.jpg" alt="">
             </div>
 
-            <iframe id="map-frame" width="250" height="380" style="border:0" loading="lazy" allowfullscreen
+            <iframe id="map-frame"  loading="lazy" allowfullscreen
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
-            <div class="imagem-menores" id="imageGallery"></div>
-            <script>
-                function loadImages() {
-                    const gallery = document.getElementById('imageGallery');
-                    const images = JSON.parse(localStorage.getItem('hotel_images')) || [
-                        'images/front.jpg',
-                        'images/quarto.jpg',
-                        'images/quarto2.jpg'
-                    ];
-                    gallery.innerHTML = images.map(img => `<img class="img-menor" src="${img}" alt="Foto do hotel">`).join('');
-                }
-                window.onload = loadImages;
-            </script>
+            <div class="imagens-menores" id="imageGallery">
+                
+            </div>
+            
 
 
         </div>
@@ -124,29 +114,6 @@
         <br>
 
     </section>
-    <script>
-        const reservationButtons = document.querySelectorAll('.reservation__btn');
-
-        reservationButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tipo = btn.getAttribute('data-tipo');
-                const checkin = document.getElementById('checkin').value;
-                const checkout = document.getElementById('checkout').value;
-
-                if (!checkin || !checkout) {
-                    alert('Preencha as datas de check-in e check-out!');
-                    return;
-                }
-
-                const reservation = { tipo, checkin, checkout };
-                const reservations = JSON.parse(localStorage.getItem('hotel_reservations')) || [];
-                reservations.push(reservation);
-                localStorage.setItem('hotel_reservations', JSON.stringify(reservations));
-
-                alert('Reserva feita com sucesso!');
-            });
-        });
-    </script>
 
     <script src="script.js"></script>
 </body>

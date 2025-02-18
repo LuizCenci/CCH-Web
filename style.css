@@ -5,6 +5,12 @@
     border: 0%;
     padding: 0%;
 }
+
+#map-frame{
+    width: 250px;
+    height: 380px;
+    border:0;
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -62,7 +68,7 @@
     grid-column: span 2;
     justify-content: center;
     align-items: center;
-    
+    width: 48%;
 }
 
 .img-menor {
