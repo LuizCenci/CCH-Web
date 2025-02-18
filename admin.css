@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.container__text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.admin__form {
+    margin-top: 20px;
+}
+
+.admin__form input,
+.admin__form button {
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.admin__form button {
+    background-color: #578FCA;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin__form button:hover {
+    background-color: #346496;
+}
+
+#serviceList, #imageList, #reservationList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#serviceList li, #imageList li, #reservationList li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#serviceList li:hover, #imageList li:hover, #reservationList li:hover {
+    background-color: #e2e2e2;
+}
+
+.save-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #fb8c00;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px); 
+}
+
+input[type="date"] {
+    width: calc(100% - 22px); 
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    background-color: #ccc;
+}
+
+h2 {
+    text-align: center;
+    color: #444;
+    font-size: 28px;
+    font-weight: 600;
+}
