@@ -150,6 +150,21 @@ input {
     background-color: #578FCA;
 }
 
+.login-link {
+
+    position: absolute;
+    right: 45px;
+    top: 37px;
+    color: #ffffff;
+    font-size: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    color: #c4c4c4;
+}
+
 @media (max-width: 1200px) and (min-width: 768px) {
     .container__info {
         grid-template-columns: 1fr 1fr;
