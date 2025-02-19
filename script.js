@@ -144,21 +144,7 @@ function saveImages() {
 //Visualização de reservas
 
 
-function loadReservations() {
-    const reservations = JSON.parse(localStorage.getItem(reservationsKey)) || [];
-    const list = document.getElementById('reservationList');
-    list.innerHTML = '';
-    if (reservations.length === 0) {
-        list.innerHTML = '<li>Nenhuma reserva encontrada.</li>';
-        return;
-    }
 
-    reservations.forEach((res, index) => {
-        const li = document.createElement('li');
-        li.textContent = `Reserva ${index + 1}: ${res.tipo} - Check-in: ${res.checkin} / Check-out: ${res.checkout}`;
-        list.appendChild(li);
-    });
-}
 
 
 
@@ -167,6 +153,5 @@ document.addEventListener("DOMContentLoaded", () => {
     loadImages();
     loadServices();
     loadImagesAdmin();
-    loadReservations();
 
 });
