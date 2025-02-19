@@ -22,54 +22,7 @@
         </div>
     </section>
 
-    <script>
-        const servicesKey = 'hotel_services';
-
-        function loadServices() {
-            const services = JSON.parse(localStorage.getItem(servicesKey)) || [
-                '✅ Recepção 24h',
-                '✅ Wi-Fi Grátis',
-                '✅ Café da Manhã Incluso',
-                '✅ Piscina & SPA',
-                '✅ Academia',
-                '✅ Restaurante & Bar',
-                '✅ Serviço de Quarto',
-                '✅ Estacionamento Privativo'
-            ];
-            const list = document.getElementById('serviceList');
-            list.innerHTML = '';
-            services.forEach((service, index) => {
-                const li = document.createElement('li');
-                li.textContent = service;
-                li.onclick = () => removeService(index);
-                list.appendChild(li);
-            });
-        }
-
-        function addService() {
-            const input = document.getElementById('newService');
-            const newService = input.value.trim();
-            if (!newService) return;
-            const services = JSON.parse(localStorage.getItem(servicesKey)) || [];
-            services.push(`✅ ${newService}`);
-            localStorage.setItem(servicesKey, JSON.stringify(services));
-            input.value = '';
-            loadServices();
-        }
-
-        function removeService(index) {
-            const services = JSON.parse(localStorage.getItem(servicesKey)) || [];
-            services.splice(index, 1);
-            localStorage.setItem(servicesKey, JSON.stringify(services));
-            loadServices();
-        }
-
-        function saveServices() {
-            alert('Serviços atualizados com sucesso!');
-        }
-
-        window.onload = loadServices;
-    </script>
+    
 
 
     <section class="container">
@@ -83,45 +36,6 @@
         </div>
     </section>
 
-    <script>
-        const imagesKey = 'hotel_images';
-
-        function loadImagesAdmin() {
-            const images = JSON.parse(localStorage.getItem(imagesKey)) || [];
-            const list = document.getElementById('imageList');
-            list.innerHTML = '';
-            images.forEach((img, index) => {
-                const li = document.createElement('li');
-                li.textContent = img;
-                li.onclick = () => removeImage(index);
-                list.appendChild(li);
-            });
-        }
-
-        function addImage() {
-            const input = document.getElementById('newImage');
-            const newImage = input.value.trim();
-            if (!newImage) return;
-            const images = JSON.parse(localStorage.getItem(imagesKey)) || [];
-            images.push(newImage);
-            localStorage.setItem(imagesKey, JSON.stringify(images));
-            input.value = '';
-            loadImagesAdmin();
-        }
-
-        function removeImage(index) {
-            const images = JSON.parse(localStorage.getItem(imagesKey)) || [];
-            images.splice(index, 1);
-            localStorage.setItem(imagesKey, JSON.stringify(images));
-            loadImagesAdmin();
-        }
-
-        function saveImages() {
-            alert('Imagens atualizadas com sucesso!');
-        }
-
-        window.onload = loadImagesAdmin;
-    </script>
 
     <section class="container">
         <h2 class="container__text">Visualizar Reservas</h2>
@@ -131,29 +45,7 @@
         </div>
     </section>
 
-    <script>
-        const reservationsKey = 'hotel_reservations';
-
-        function loadReservations() {
-            const reservations = JSON.parse(localStorage.getItem(reservationsKey)) || [];
-            const list = document.getElementById('reservationList');
-            list.innerHTML = '';
-            if (reservations.length === 0) {
-                list.innerHTML = '<li>Nenhuma reserva encontrada.</li>';
-                return;
-            }
-
-            reservations.forEach((res, index) => {
-                const li = document.createElement('li');
-                li.textContent = `Reserva ${index + 1}: ${res.tipo} - Check-in: ${res.checkin} / Check-out: ${res.checkout}`;
-                list.appendChild(li);
-            });
-        }
-
-        window.onload = loadReservations;
-    </script>
-
-
+    <script src="script.js" defer></script>
 </body>
 
 </html>
