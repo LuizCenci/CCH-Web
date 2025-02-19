@@ -33,7 +33,9 @@ body {
     font-size: 16px;
     width: 100%;
 }
-
+#password{
+    width: 96.3%;
+}
 .admin__form button {
     background-color: #578FCA;
     color: white;
